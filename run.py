@@ -1,4 +1,4 @@
-pkg install python git# coding=utf-8
+#pkg install python git# coding=utf-8
 
 #     *file name: simple.py (vava)
 #     *copyright: (C) © 2022 ~ Romi Afrizal
