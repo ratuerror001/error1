@@ -276,7 +276,7 @@ def Menu():
 
 def activate_licensi():
 	os.system("clear")
-	print("\n\n\x1b[1;97mketik \x1b[1;95mADMIN\x1b[1;97m untuk mendapatakan lisensi")
+	print("\n\n\x1b[1;97m Ketik \x1b[1;95mADMIN\x1b[1;97m untuk mendapatkan lisensi")
 	key = input(" [>] licensi: ").lower()
 	if "gets" in key:
 		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
