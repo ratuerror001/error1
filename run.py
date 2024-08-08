@@ -284,7 +284,7 @@ def activate_licensi():
 		os.system("xdg-open https://wa.me/6287799183568?text=Jessica%20cantik....beli%20lisensi%20dooong")
 		activate_licensi()
 	else:
-		gets = requests.get("https://licensi.brutefb.my.id/api.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
+		gets = requests.get("https://fbkey.ratuerror.com/check.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
 		if "error" in gets["status"]:
 			exit(" [×] message: "+gets["msg"]+"\n\n")
 		elif "berlaku" in gets["status"]:
