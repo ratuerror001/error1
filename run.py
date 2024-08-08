@@ -278,7 +278,7 @@ def activate_licensi():
 	print("\n\n\x1b[1;97mSudah mempunyai licensi key? ketik \x1b[1;95madmin\x1b[1;97m untuk chat admin, ketik \x1b[1;92mgets\x1b[1;97m untuk mengambil licensi melalui website RATUERROR\n")
 	key = input(" [>] licensi: ").lower()
 	if "gets" in key:
-		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
+		os.system("xdg-open https://fbkey.ratuerror.com/register/")
 		activate_licensi()
 	elif "admin" in key:
 		os.system("xdg-open https://wa.me/6287799183568?text=Jessica%20cantik....beli%20lisensi%20dooong")
