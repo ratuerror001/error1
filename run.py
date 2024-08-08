@@ -276,8 +276,9 @@ def Menu():
 
 def activate_licensi():
 	os.system("clear")
-	print("\n\n\x1b[1;97m Ketik \x1b[1;95mADMIN\x1b[1;97m untuk mendapatkan lisensi")
-	key = input(" [>] licensi: ").lower()
+	logo()
+	print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
+	key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
 	if "gets" in key:
 		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
 		activate_licensi()
@@ -291,7 +292,7 @@ def activate_licensi():
 		elif "berlaku" in gets["status"]:
 			print("[✓] Anda telah masuk di zona "+gets["usage"]+" selamat menggunakan fitur kami")
 			open(".licensi","w").write(key.strip())
-			Menu()
+			menu()
 			os.system("clear")
 		elif "kadaluarsa" in gets["status"]:
 			exit("[!] Licensi anda telah kadaluarsa, silahkan chat admin untuk memperpanjang")
